@@ -5,118 +5,93 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.25+-red)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-Educational-green)](LICENSE)
 
-> **Hệ thống dự đoán bệnh tim thông minh sử dụng Machine Learning và Ensemble Methods**
+> **An intelligent heart disease prediction system using Machine Learning and Ensemble Methods**
 
-## 🎯 Tổng quan
+## 🎯 Overview
 
-Dự án này xây dựng một hệ thống dự đoán bệnh tim toàn diện sử dụng 10 thuật toán machine learning khác nhau trên bộ dữ liệu Cleveland Heart Disease. Hệ thống đạt AUC trung bình 0.94 với tối ưu hóa siêu tham số và theo dõi thí nghiệm chi tiết.
+This project builds a comprehensive heart disease prediction system using 10 different machine learning algorithms on the Cleveland Heart Disease dataset. The system achieves an average AUC of 0.94 with hyperparameter optimization and detailed experiment tracking.
 
-**🌐 Demo trực tuyến:** https://heart-disease-prediction-systems.streamlit.app/
+**🌐 Live Demo:** https://heart-disease-prediction-systems.streamlit.app/
 
-**👥 Nhóm phát triển:** Dũng, Anh, Vinh, Hằng, Huy | AIO2025 VietAI
 
 ---
 
-## 🚀 Khởi chạy nhanh
+## 🚀 Quick Start
 
 ### Windows
 ```powershell
-# Kích hoạt môi trường
+# Activate virtual environment
 .\venv\Scripts\Activate.ps1
 
-# Chạy ứng dụng
+# Run the application
 streamlit run app\streamlit_app.py
 
-# Truy cập tại http://localhost:8502
+# Access at http://localhost:8502
 ```
 
 ### Linux/Mac
 ```bash
-# Kích hoạt môi trường
+# Activate virtual environment
 source venv/bin/activate
 
-# Chạy ứng dụng
+# Run the application
 ./run.sh
 
-# Truy cập tại http://localhost:8502
+# Access at http://localhost:8502
 ```
 
 ---
 
-## 📁 Cấu trúc dự án
+## 📁 Project Structure
 
 ```
 heart-disease-diagnosis-main/
 ├── 📱 app/
-│   ├── streamlit_app.py          # Giao diện web chính
+│   ├── streamlit_app.py          # Main web interface
 │   └── model_functions.py        # Feature engineering classes
 ├── 🔧 src/
-│   ├── pipeline.py               # Pipeline ML chính
+│   ├── pipeline.py               # Main ML pipeline
 │   ├── model_functions.py        # Feature transformers
 │   └── utils/
-│       └── app_utils.py          # Hàm tiện ích
+│       └── app_utils.py          # Utility functions
 ├── 📜 scripts/
-│   ├── experiment_manager.py     # Quản lý thí nghiệm
-│   └── train_models.py           # Huấn luyện và tối ưu
+│   ├── experiment_manager.py     # Experiment management
+│   └── train_models.py           # Training and optimization
 ├── 📊 data/
-│   ├── raw/                      # Dữ liệu gốc
-│   ├── processed/                # Dữ liệu đã xử lý
-│   └── patient_history.json      # Lịch sử bệnh nhân
+│   ├── raw/                      # Raw data
+│   ├── processed/                # Processed data
+│   └── patient_history.json      # Patient history
 ├── 🤖 models/
-│   └── saved_models/latest/      # Models đã huấn luyện
+│   └── saved_models/latest/      # Trained models
 ├── 🧪 experiments/
-│   ├── experiment_log.json       # Log 40+ thí nghiệm
-│   ├── logs/                     # Log huấn luyện
-│   └── results/                  # Kết quả và dự đoán
+│   ├── experiment_log.json       # Logs of 40+ experiments
+│   ├── logs/                     # Training logs
+│   └── results/                  # Results and predictions
 ├── 📓 notebooks/                 # Jupyter notebooks
-├── 📈 results/                   # Kết quả phân tích
-└── ⚙️ .streamlit/                # Cấu hình Streamlit
+├── 📈 results/                   # Analysis results
+└── ⚙️ .streamlit/                # Streamlit configuration
 ```
 
 ---
 
-## Methodology
+## 🎯 Algorithms Evaluated
 
-### Dataset
+The system uses 10 machine learning algorithms:
 
-**Source:** Cleveland Heart Disease Dataset (UCI Machine Learning Repository)  
-**Samples:** 303 patients  
-**Features:** 13 clinical attributes  
-**Target:** Binary classification (0 = Healthy, 1 = Disease)
-
-### 🎯 Thuật toán được đánh giá
-
-Hệ thống sử dụng 10 thuật toán machine learning:
-
-1. **Logistic Regression** - Mô hình tuyến tính cơ bản
-2. **Random Forest** - Ensemble cây quyết định
-3. **K-Nearest Neighbors** - Học dựa trên láng giềng
-4. **Decision Tree** - Cây quyết định đơn
+1. **Logistic Regression** - Basic linear model
+2. **Random Forest** - Ensemble of decision trees
+3. **K-Nearest Neighbors** - Instance-based learning
+4. **Decision Tree** - Single decision tree
 5. **AdaBoost** - Adaptive boosting
 6. **Gradient Boosting** - Sequential ensemble
 7. **XGBoost** - Extreme gradient boosting
 8. **LightGBM** - Light gradient boosting
-9. **Support Vector Machine** - Máy vector hỗ trợ
-10. **Ensemble Voting** - Meta-classifier tổng hợp
-
-### Hyperparameter Optimization
-
-- **Framework:** Optuna (Tree-structured Parzen Estimator)
-- **Trials:** 100 per model
-- **Validation:** 5-fold stratified cross-validation
-- **Metric:** F1-score (macro average)
-
-### Evaluation
-
-- **Cross-validation AUC:** Performance during training
-- **Test AUC:** Held-out test set performance
-- **Majority Voting:** Final prediction from ensemble
+9. **Support Vector Machine** - Support vector machine
+10. **Ensemble Voting** - Meta-classifier
 
 ---
 
-## Application Features
-
-## Results
+## 🏆 Results
 
 | Model                  | Accuracy | Precision | Recall | F1-Score | AUC    | Status |
 | ---------------------- | -------- | --------- | ------ | -------- | ------ | ------ |
@@ -131,84 +106,84 @@ Hệ thống sử dụng 10 thuật toán machine learning:
 | Decision Tree          | 83.6%    | 82.1%     | 82.1%  | 82.1%    | 88.6%  | ✅ Baseline |
 | **Ensemble Average**   | **87.0%** | **84.1%** | **87.1%** | **85.5%** | **94.0%** | 🎯 **Target** |
 
-🏆 **Kết quả tổng thể:** AUC trung bình 94.0% | Mô hình tốt nhất: Gradient Boosting
+🏆 **Overall Results:** Average AUC 94.0% | Best Model: Gradient Boosting
 
 ---
 
 ## Application Features
 
-### 🩺 1. Chẩn đoán bệnh nhân
+### 🩺 1. Patient Diagnosis
 
-- 📝 Form nhập liệu với validation thông số lâm sàng
-- 🔮 Dự đoán real-time từ 10 models
-- 🗳️ Majority voting với điểm tin cậy
-- 📊 Visualize đánh giá rủi ro
-- 💊 Đề xuất cá nhân hóa
+- 📝 Input form with clinical parameter validation
+- 🔮 Real-time predictions from 10 models
+- 🗳️ Majority voting with confidence scores
+- 📊 Visual risk assessment
+- 💊 Personalized treatment recommendations
 
-### 📈 2. Phân tích mô hình
+### 📈 2. Model Analysis
 
-- 📋 Metrics hiệu suất toàn diện
-- 🔄 So sánh cross-validation vs test set
-- ⚙️ Chi tiết cấu hình mô hình
-- 🎯 Confusion matrix và ROC curves
+- 📋 Comprehensive performance metrics
+- 🔄 Cross-validation vs test set comparison
+- ⚙️ Detailed model configuration
+- 🎯 Confusion matrix and ROC curves
 
-### 🔍 3. Phân tích tầm quan trọng
+### 🔍 3. Feature Importance Analysis
 
 - 🧠 SHAP-style feature contribution
-- 📊 Ranking tầm quan trọng theo mô hình
-- 🏥 Hướng dẫn diễn giải lâm sàng
+- 📊 Model-specific importance ranking
+- 🏥 Clinical interpretation guidance
 - 📉 Input contribution visualization
 
-### 🧪 4. Theo dõi thí nghiệm
+### 🧪 4. Experiment Tracking
 
-- 📚 Lịch sử tìm kiếm siêu tham số (40+ experiments)
-- 🔄 Log thí nghiệm có thể tái tạo
-- 🔧 Tools so sánh hiệu suất
-- 📊 Export báo cáo HTML/PDF
+- 📚 Hyperparameter search history (40+ experiments)
+- 🔄 Reproducible experiment logs
+- 🔧 Performance comparison tools
+- 📊 HTML/PDF report export
 
-### 📋 5. Lịch sử & Báo cáo
+### 📋 5. History & Reporting
 
-- 🗃️ Lưu trữ dự đoán bệnh nhân
-- 📄 Tạo báo cáo PDF tự động
-- 💾 Xuất dữ liệu CSV/Excel
-- 📈 Thống kê sử dụng
+- 🗃️ Patient prediction history storage
+- 📄 Automated PDF report generation
+- 💾 CSV/Excel data export
+- 📈 Usage statistics
 
 ---
 
-## 💻 Cài đặt
+## 💻 Installation
 
-### Yêu cầu hệ thống
+### System Requirements
 
-- 🐍 Python 3.10+ (khuyến nghị 3.11)
+- 🐍 Python 3.10+ (recommended 3.11)
 - 📦 pip package manager
-- 💾 8GB RAM (khuyến nghị 16GB)
-- 💿 2GB ổ cứng trống
+- 💾 8GB RAM (recommended 16GB)
+- 💿 2GB free disk space
 
-### Cài đặt
+### Setup
 
 ```bash
 # Clone repository
 git clone https://github.com/Rekk-tech/Heart-Disease-Prediction-System.git
 cd Heart-Disease-Prediction-System
 
-# Tạo môi trường ảo
+# Create virtual environment
 python -m venv venv
 
-# Kích hoạt môi trường (Windows)
+# Activate environment (Windows)
 venv\Scripts\activate
 
-# Kích hoạt môi trường (Linux/Mac)
+# Activate environment (Linux/Mac)
 source venv/bin/activate
 
-# Cài đặt dependencies
+# Install dependencies
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🎮 Sử dụng
+## 🎮 Usage
 
-### Triển khai local
+### Local Deployment
 
 ```bash
 # Windows
@@ -218,102 +193,54 @@ streamlit run app/streamlit_app.py
 ./run.sh
 ```
 
-### Triển khai đám mây
 
-🌐 **Streamlit Cloud:**
-- **URL:** https://heart-disease-prediction-systems.streamlit.app/
-- **Auto-deploy:** Tự động khi push code
-- **Uptime:** 24/7 khả dụng
-- **SSL:** HTTPS bảo mật
-
-### Huấn luyện mô hình
+### Model Training
 
 ```bash
-# Chạy hyperparameter tuning
+# Run hyperparameter tuning
 python scripts/train_models.py
 
-# Kết quả lưu tại experiments/
+# Results saved in experiments/
 ```
 
 ### Jupyter Notebooks
 
 ```bash
-# Khởi động Jupyter
+# Start Jupyter
 jupyter lab notebooks/
 
-# Notebooks có sẵn:
+# Available notebooks:
 # - 01_AdaBoost_Model.ipynb
-# - 02_Create_Datasets.ipynb  
+# - 02_Create_Datasets.ipynb
 # - 03_Deploy_Streamlit.ipynb
 ```
 
 ---
 
-## Technical Details
 
-### 🔧 Dependencies chính
 
-- **🤖 ML:** scikit-learn, XGBoost, LightGBM, joblib
-- **🖥️ UI:** Streamlit 1.25+, Plotly, matplotlib
-- **🔬 Optimization:** Optuna (TPE sampling)
-- **📊 Data:** pandas, numpy, scipy
-- **📄 Reports:** reportlab, SHAP
-- **🔒 Utils:** pathlib, datetime, json
+## ⚠️ Limitations & Disclaimer
 
-### 🔄 Tính tái tạo
+🎓 **FOR EDUCATIONAL/RESEARCH PURPOSES ONLY**
 
-- 🌱 Fixed random seed (42) cho tất cả experiments
-- 📝 Log hyperparameter hoàn chỉnh (40+ experiments)
-- 🏷️ Versioned model artifacts
-- ⚙️ Experiment manager với metadata
-
----
-
-## ⚠️ Giới hạn & Tuyên bố miễn trừ
-
-🎓 **CHỈ DÀNH CHO MỤC ĐÍCH GIÁO DỤC/NGHIÊN CỨU**
-
-Hệ thống này KHÔNG được thiết kế cho sử dụng lâm sàng. Luôn tham khảo ý kiến bác sĩ chuyên khoa cho chẩn đoán và điều trị.
-
-**🚨 Hạn chế đã biết:**
-
-- 📊 Kích thước dataset nhỏ (n=303)
-- 🏥 Giới hạn ở dân số Cleveland clinic
-- 🔬 Chưa có validation cohort ngoài
-- ⏰ Thiếu tính năng: xu hướng thời gian
-- 🌍 Chưa validation trên dân số Việt Nam
-
----
-
-## 🙏 Lời cảm ơn
-
-- **🏛️ UCI Machine Learning Repository** - Cung cấp Cleveland Heart Disease dataset
-- **🌟 Open-source communities** - scikit-learn, Streamlit, Optuna, Plotly
-- **🎓 VietAI AIO2025** - Hỗ trợ học tập và mentoring
-- **👨‍🏫 Instructors & Mentors** - Hướng dẫn và phản hồi quý báu
-
----
+This system is NOT designed for clinical use. Always consult qualified healthcare professionals for diagnosis and treatment.
 
 ## 📄 License
 
-📚 **Sử dụng giáo dục và nghiên cứu.** Xem license của từng package dependencies.
+📚 **For educational and research use only.** See individual package licenses for dependencies.
 
 ---
 
-## 👥 Đóng góp
+## 👥 Contributions
 
-Chào mừng contributions! Vui lòng:
+Contributions are welcome! Please:
 
-1. 🍴 Fork repository
-2. 🌟 Tạo feature branch
-3. 💻 Commit changes
-4. 📤 Push và tạo Pull Request
+1. 🍴 Fork the repository
+2. 🌟 Create a feature branch
+3. 💻 Commit your changes
+4. 📤 Push and create a Pull Request
 
 ---
-
-## 📞 Liên hệ
-
-**Nhóm phát triển:** AIO2025 VietAI Learning Team
 
 - 📧 **Email:** [Contact through GitHub]
 - 🐙 **GitHub:** https://github.com/Rekk-tech/Heart-Disease-Prediction-System
@@ -321,4 +248,6 @@ Chào mừng contributions! Vui lòng:
 
 ---
 
-⭐ **Nếu dự án hữu ích, hãy cho chúng tôi một star!** ⭐
+
+
+
