@@ -12,9 +12,10 @@ import warnings
 import json
 from datetime import datetime
 from pathlib import Path
+import subprocess
+import sys
 
 # IMPORTANT: Import model_functions first (needed for unpickling models)
-import sys
 from pathlib import Path
 
 # Add src to path
@@ -26,7 +27,6 @@ utils_path = Path(__file__).parent.parent / "src" / "utils"
 sys.path.insert(0, str(utils_path))
 
 # Import model functions and FE transformers
-import sys
 from pathlib import Path
 
 # Add parent directory to path
@@ -1358,6 +1358,12 @@ if st.session_state.pipeline_initialized:
                     if "dataset_type" in display_df.columns:
                         display_df = display_df.drop("dataset_type", axis=1)
 
+                    # Trước khi hiển thị DataFrame, xử lý cột hyperparameters
+                    if "hyperparameters" in display_df.columns:
+                        display_df["hyperparameters"] = display_df["hyperparameters"].apply(
+                            lambda x: float(x) if x.replace(".", "", 1).isdigit() else None
+                        )
+
                     st.dataframe(display_df, width="stretch")
 
                     # Download options
@@ -1503,3 +1509,20 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
+
+# Run Streamlit server (disable XSRF protection warning)
+if __name__ == "__main__":
+    subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "streamlit",
+            "run",
+            "app/streamlit_app.py",
+            "--server.port=8501",
+            "--server.address=localhost",
+            "--server.headless=false",
+            "--server.enableCORS=false",
+            "--server.enableXsrfProtection=false",
+        ]
+    )
