@@ -1377,7 +1377,7 @@ if st.session_state.pipeline_initialized:
                     # Trước khi hiển thị DataFrame, xử lý cột hyperparameters
                     if "hyperparameters" in display_df.columns:
                         display_df["hyperparameters"] = display_df["hyperparameters"].apply(
-                            lambda x: float(x) if x.replace(".", "", 1).isdigit() else None
+                            lambda x: str(x) if x is not None else "N/A"
                         )
 
                     st.dataframe(display_df, width="stretch")
