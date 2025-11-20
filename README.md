@@ -150,14 +150,6 @@ The system uses 10 machine learning algorithms:
 
 ---
 
-## 💻 Installation
-
-### System Requirements
-
-- 🐍 Python 3.10+ (recommended 3.11)
-- 📦 pip package manager
-- 💾 8GB RAM (recommended 16GB)
-- 💿 2GB free disk space
 
 ### Setup
 
@@ -189,9 +181,7 @@ pip install -r requirements.txt
 # Windows
 streamlit run app/streamlit_app.py
 
-# Linux/Mac
-./run.sh
-```
+
 
 
 ### Model Training
@@ -231,22 +221,11 @@ This system is NOT designed for clinical use. Always consult qualified healthcar
 
 ---
 
-## 👥 Contributions
 
-Contributions are welcome! Please:
-
-1. 🍴 Fork the repository
-2. 🌟 Create a feature branch
-3. 💻 Commit your changes
-4. 📤 Push and create a Pull Request
-
----
-
-- 📧 **Email:** [Contact through GitHub]
 - 🐙 **GitHub:** https://github.com/Rekk-tech/Heart-Disease-Prediction-System
 - 🌐 **Demo:** https://heart-disease-prediction-systems.streamlit.app/
 
----
+
 
 
 

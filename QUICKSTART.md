@@ -23,7 +23,7 @@ run.bat
 ```
 
 ## Truy cập ứng dụng:
-- URL: http://localhost:8501
+- URL: http://localhost:8502
 - Ứng dụng sẽ tự động mở trong trình duyệt
 
 ## Dừng ứng dụng:

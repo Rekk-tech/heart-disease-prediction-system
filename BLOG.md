@@ -1,7 +1,5 @@
 ### HEART DISEASE DIAGNOSIS PROJECT — BLOG
 
-![AI Viet Logo](assets/AIVietLT-logo.png)
-
 —
 
 ### CHƯƠNG 1: GIỚI THIỆU DỰ ÁN
@@ -173,12 +171,12 @@ Các mô hình tốt nhất được lưu ở `models/saved_models/` cùng bản
 #### 7.4. Tài liệu tham khảo & Code repository
 
 - Tài liệu, hình ảnh và kết quả: thư mục `docs/`, `results/figures/`, `results/`.
-- Hướng dẫn triển khai: `DEPLOYMENT.md`, `README.md`.
+- Hướng dẫn triển khai:  `README.md`.
 - Mã nguồn: xem cấu trúc tại thư mục gốc dự án và `models/`, `experiments/`.
 
 —
 
 Gợi ý trải nghiệm nhanh:
 
-- Chạy ứng dụng: tham khảo `README.md` hoặc `run_app.sh`.
+- Chạy ứng dụng: tham khảo `README.md` .
 - Khám phá so sánh mô hình: mở các biểu đồ trong `results/figures/`.
