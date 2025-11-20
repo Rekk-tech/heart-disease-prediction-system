@@ -1506,15 +1506,39 @@ if st.session_state.pipeline_initialized:
                 )
 
             with col2:
-                if st.button("🗑️ Clear History", type="secondary"):
-                    if st.button("⚠️ Confirm Clear History"):
-                        st.session_state.history_manager.history = []
-                        st.session_state.history_manager._save_history()
-                        st.success("✅ History cleared!")
+                # Initialize confirmation state if not exists
+                if 'confirm_clear_history' not in st.session_state:
+                    st.session_state.confirm_clear_history = False
+                
+                if not st.session_state.confirm_clear_history:
+                    if st.button("🗑️ Clear History", type="secondary"):
+                        st.session_state.confirm_clear_history = True
                         try:
                             st.rerun()
                         except AttributeError:
                             st.experimental_rerun()
+                else:
+                    st.warning("⚠️ Are you sure you want to clear all history? This action cannot be undone.")
+                    col_confirm, col_cancel = st.columns(2)
+                    
+                    with col_confirm:
+                        if st.button("✅ Yes, Clear All", type="primary"):
+                            st.session_state.history_manager.history = []
+                            st.session_state.history_manager._save_history()
+                            st.session_state.confirm_clear_history = False
+                            st.success("✅ History cleared successfully!")
+                            try:
+                                st.rerun()
+                            except AttributeError:
+                                st.experimental_rerun()
+                    
+                    with col_cancel:
+                        if st.button("❌ Cancel", type="secondary"):
+                            st.session_state.confirm_clear_history = False
+                            try:
+                                st.rerun()
+                            except AttributeError:
+                                st.experimental_rerun()
         else:
             st.info(
                 "ℹ️ No prediction history yet. Make some predictions to see them here!"
